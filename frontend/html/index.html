@@ -1,0 +1,103 @@
+<html>
+
+	<head>
+		<title>Weather Nowcasting</title>
+	</head>
+
+	<body>
+		<h2>CS3237 Weather Nowcasting</h2>
+		<h4>Done by Benjamin, Zeno, Haozhe and Kendrik.</h4>
+
+		<h4>Description:</h4>
+		<p>Singapore is often sunny, humid with a chance of rainfall. Nevertheless, knowing the weather in the future always helps because it tells people about the weather ahead and helps them make more informed decisions in planning their activities. As such, we approached this problem statement by designing a portable, localized weather forecasting device to collect live weather data at a given location in Singapore. To do so, we used the CC2650 SensorTag provided for us throughout the candidature of the module. Below is how the CC2650 SensorTag... As well as our attempt to actually build a SensorTag (in our defense, there was a strict no budget requirement for the project. Not sure if you would spend like, $50 dollars or more to even invest in specialized casing for this project anyway. I speak of this in the perspective of someone who actually is aware of how to insulate electronic equipment like microcontrollers from a wide variety of conditions like heat, dust and so on and has experience making one (thanks a bunch to my internship supervisors)). We scavenged for stuff around E2A in NUS Engineering, as Zeno and Benjamin had access to this.</p>
+
+		<!-- insert images here -->
+
+		<h4>Workflow:</h4>
+		<ol>
+			<li>We collect data from the SensorTag and stored this data in a database in an hourly interval. An MQTT broker on a Raspberry Pi requests the SensorTag for this data.</li>
+			<li>Due to the limitations of the SensorTag in collecting more relevant features in predicting rainfall, we relied on various APIs like WeatherAPI and Accuweather API to obtain information on more features.</li>
+			<li>Following the collection of the API data, features collected by the SensorTag replaced the corresponding ones acquired from the APIs. This data was then used to train a Long-Short-Term-Memory (LSTM) Neural Network. For practicality's sake, we decided that data from the past three hours was best suited to predict weather for the next hour.</li>
+			<li>Using the prediction for the next one hour, we wanted to determine whether it would be raining. Thus, we passed this prediction into a Dense Neural Network.</li>
+			<li>Working in parallel with the LSTM and Dense Neural Network was a RainNet Convolutional Neural Network (CNN). This CNN aimed to predict whether parts of Singapore was raining based on cloud data around Singapore. This data is collected from the Metereological Service of Singapore (MSS). This CNN operates on a slightly different timing interval, given the relative immediacy of cloud movements. For this model, four weather radar images is downloaded from the past 30 minutes at a regular interval.</li>
+			<li>If both learning models predict there is rain, then there is rain. Otherwise, there is no rain.</li>
+			<li>A user who wants to request for a prediction directly queries the server for this.</li>
+		</ol>
+
+		<h4>Assumptions made:</h4>
+		<ol>
+			<li>The data collected by the SensorTag is the ground truth.</li>
+			<li>The data collected for the clouds is a ground truth.</li>
+			<li>Weather conditions for subsequent hours is dependent on weather conditions from the previous hours. The CNN is built for one specific reason which will be elaborated later.</li>
+			<li>Data collected by the API is reliable to a large extent.</li>
+		</ol>
+
+
+
+
+		<h4>LSTM and Dense Neural Network</h4>
+		<h5>Done by: Kendrik and Zeno</h5>
+
+		<h6>Contributions:</h6>
+		<ol>
+			<li>Set up the relevant sensors to acquire data.</li>
+			<li>Set up a database for storage of SensorTag data.</li>
+			<li>Collect weather data from APIs at five minutes and hourly intervals.</li>
+			<li>Making insights and sense out of data collected (duh), find relevant features for training.</li>
+			<li>Train the LSTM and Dense Neural Network for forecasting and prediction.</li>
+			<li>Provide a laptop with a sufficiently strong GPU and integrate learning models into a demo script.</li>
+		</ol>
+
+		<h6>Reflections:</h6>
+		<ol></ol>
+		<p>Perhaps the biggest issue of the training process is not just a decision as to the intervals at which we collected data, but also making sense of the data and coming up with relevant hypotheses for the model. Learning the data wrongly means bad news for the IoT project, especially when this semester is ratchet. Following me playing a waiting game while looking through the various neural network architectures that can do time-series forecasting and thinking of various relevant features for training, Kendrik obtained a sizeable dataset of approximately 19700 hourly data points from 9th October to 29th October through APIs for various areas, whereas Zeno set up the sensor and database to store the sensor data. Understand that an inaccurate LSTM automatically invalidates the classification, and a LSTM that predicts well still carries forward an indeterminate error in the dense neural network. The ground-truth application of this prototype makes it crucial to collect data from various parts of Singapore for extrapolation.</p>
+
+		<h6>The case for five minutes polling:</h6>
+		<p>Honestly, this was a miscommunication between Kendrik and Benjamin. Our problem statements highlighted the importance of timing synchronity, but they had two different outlooks at the timings. This however, made the dataset more granular. A dataset of five minutes intervals can always be filtered to inspect data at hourly intervals, but not necessarily so the other way around. As such,, the dataset of five minutes intervals could be used as a contingency plan if we wanted to switch timing intervals.</p>
+
+		<h6>Features Selected:</h6>
+		<p>After inspecting the comprehensive response data provided by Accuweather API, WeatherAPI as well as the SensorTag data, we felt it was most practical to consider at least five, but not more than seven features. In particular, we considered temperature, humidity, pressure, wind speed, UV index, cloud cover and visibility. Out of these seven features, the SensorTag could only obtain temperature, humidity, pressure data. Light intensity data was irretrievable by any government sites or API data, leaving us little option but to leave it out and use UV index as a substitute. In case if you did not understand this... Below shows what was going on in a nutshell:</p>
+
+		<!-- Insert predictor image here -->
+
+		<p>If you're wondering why we did not use precipitation summaries or rainfall as a feature, it is because these were ultimately what we wanted to prove and predict.</p>
+
+		<h6>Results for LSTM:</h6>
+		<p>Looking at the initial prediction for the LSTM, we'd say that it turned out pretty well. A small error was recorded for training and test datasets, and the LSTM predicted the data sufficiently well in the future. The training and test data was collected from Central Singapore. The real test though, is extrapolating this dataset to the entire Singapore. The images below show three things: the errors, the predictions, and the areas in Singapore I probed for data in an hourly interval.</p>
+
+		<!-- insert error image -->
+		<!-- insert predictions image -->
+		<!-- insert areas probed in Singapore -->
+
+		<h6>Extrapolation for the data in Singapore:</h6>
+		<p>We are obviously not going to show you every place we sampled, otherwise you'll just have to keep scrolling (gross). You know what? We're just going to show you four areas instead: North, South, East and West.</p>
+
+		<!-- insert north image -->
+		<!-- insert south image -->
+		<!-- insert east image -->
+		<!-- insert west image -->
+
+		<p>Based on the data... Yup. No need to train like, 20 different models for one thing. The LSTM extrapolates really well and this can be used for any place that's Singapore. We think Singapore is just reaaaaaally too small and is on the Equator to show any significant climate differences in different parts of the country, though we were a little surprised that the pressures differed slightly. Still, we do not feel that it is sufficiently significant to invalidate anything.</p>
+
+		<h6>Results for the Dense Neural Network:</h6>
+		<p>The data for the next one hour is used to obtain a classification. The results are as shown below: </p>
+
+		<!-- insert acc image -->
+		<!-- insert loss image -->
+		<!-- insert metrics image -->
+
+		<p>In our situation, we had to use other metrics as well asides from accuracy. This is because of a large data imbalance in our dataset. Surprisingly, removing the last 54 entries (or just like, 1% of the entire dataset that wasn't raining) solved the problem. This imbalance is shown below: </p>
+
+		<!-- insert imbalance image -->
+
+		<h6>Limitations of existing approach:</h6>
+		<ol>
+			<li>This model works only for Singapore. Very likely, if we want it to be more applicable to a wider range of countries, we would need different models that learn different conditions very differently. A simpler model is usually a better learner because it offers a shorter hypothesis that better explains the data.</li>
+			<li>The data for time was not used for learning. This could be good or bad; not learning the time results in a time-independent model, but might leave out an entire feature that may better explain certain weather conditions. On the flipside, the granularity of the time data used would very likely lead to a more complex learning model and also pose more questions as to the extent to which the time granularity can help explain weather conditions; snapshots of data in hourly intervals provides no information about the conditions within the minutes that occur.</li>
+			<li>The huge data imbalance was a consequence of us working on the project during a <a href="#">non-monsoon period </a>, where there would be less rain.</li>
+			<li>Only five features were ultimately used. The LSTM was unable to learn and predict cloud cover and visibility effectively, regardless of the network architecture. Consequently, we decided to drop visibility altogether, and rely on RainNet to estimate cloud data.</li>
+		</ol>
+
+	</body>
+
+</html>
