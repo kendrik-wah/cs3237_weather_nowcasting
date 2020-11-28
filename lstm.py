@@ -138,13 +138,8 @@ def LSTM_get_rain_prediction():
     latest = get_weather_api_data("use_your_own_app_key_dude", 1.3973, 103.7475)
     latest = reorg_data(latest)
     input_data = np.concatenate([prev, latest[np.newaxis, ::]], axis=0)
-    #print(input_data.shape)
+
     currThree = np.expand_dims(input_data[:3], axis=0)
-
-    #print("Before scaling:")
-
-    #print(currThree.shape)
-    #print(currThree)
 
     currThreeScaled = []
     my_scaler = joblib.load('scaler1.pkl')
@@ -152,12 +147,6 @@ def LSTM_get_rain_prediction():
          currThreeScaled.append(my_scaler.transform(curr))
 
     currThreeScaled = np.array(currThreeScaled)
-    #print()
-    #print("After scaling:")
-
-    #print(currThreeScaled.shape)
-    #print(currThreeScaled)
-    #sprint()
 
     # Use the LSTM and dense neural network to predict rain
     #get_rain_prediction(LSTM_MODEL_NAME, DENSENN_MODEL_NAME)
