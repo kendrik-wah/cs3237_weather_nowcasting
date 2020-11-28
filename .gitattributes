@@ -1,0 +1,4 @@
+rainbooleanfiveVars.h5 filter=lfs diff=lfs merge=lfs -text
+rain_classifier.h5 filter=lfs diff=lfs merge=lfs -text
+rainnet_weights.h5 filter=lfs diff=lfs merge=lfs -text
+LSTMfiveVars.h5 filter=lfs diff=lfs merge=lfs -text
