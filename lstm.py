@@ -57,8 +57,8 @@ def reorg_data(result):
 
 
 def get_latest_result():
-    result = get_weather_api_data("39fc0fabd0e34fc8b7b84507201810", 1.3973, 103.7475)
-    mongoClient = MongoClient('mongodb+srv://Zeno:vx8WC8mBz69kaHaU@sensortag.b4min.mongodb.net/<dbname>?retryWrites=true&w=majority')
+    result = get_weather_api_data("use_your_own_app_key_dude", 1.3973, 103.7475)
+    mongoClient = MongoClient('some_database_have_fun_figuring_this_out')
     mydb = mongoClient['sensortag']
 
     mycol = mydb['data']
@@ -100,7 +100,7 @@ def get_rain_prediction(LSTM_MODEL_NAME, DENSENN_MODEL_NAME, currThreeScaled):
 def LSTM_get_rain_prediction():
     
     print("\n\nCollecting the past 3 hours of SensorTag data from MongoDB...")
-    mongoClient = MongoClient('mongodb+srv://Zeno:vx8WC8mBz69kaHaU@sensortag.b4min.mongodb.net/<dbname>?retryWrites=true&w=majority')
+    mongoClient = MongoClient('some_database_have_fun_figuring_this_out')
     mydb = mongoClient['sensortag']
     mycol = mydb['data']
     three_hour_results = mycol.find().sort([('$natural', -1)]).limit(3)
@@ -123,7 +123,7 @@ def LSTM_get_rain_prediction():
     # Collect 3 hours worth of data from Weather API
     prev = []
     for i in range(3):
-       result = get_weather_api_data("39fc0fabd0e34fc8b7b84507201810", 1.3973, 103.7475)  # Get all the data from weather API (output: dict)
+       result = get_weather_api_data("use_your_own_app_key_dude", 1.3973, 103.7475)  # Get all the data from weather API (output: dict)
     
        result['temp'] = temp[i]
        result['pressure'] = pressure[i]
@@ -135,7 +135,7 @@ def LSTM_get_rain_prediction():
        prev.append(result)
        time.sleep(2) 
 
-    latest = get_weather_api_data("39fc0fabd0e34fc8b7b84507201810", 1.3973, 103.7475)
+    latest = get_weather_api_data("use_your_own_app_key_dude", 1.3973, 103.7475)
     latest = reorg_data(latest)
     input_data = np.concatenate([prev, latest[np.newaxis, ::]], axis=0)
     #print(input_data.shape)
