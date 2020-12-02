@@ -1,0 +1,110 @@
+.dense-nn-div {
+
+}
+
+.dense-nn-results {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.train, .test {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.train-val-div, .test-val-div {
+	flex-basis: 100%;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.train-val, .test-val {
+	text-align: center;
+	font-family: 'Oswald', serif;
+	font-size: 300%;
+	margin-top: 0;
+	margin-bottom: 2%;
+}
+
+.results-values-div {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+}
+
+.top-two, .bottom-two {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5.25%;
+	margin-bottom: 5.25%;
+}
+
+.result-div {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.acc-val, .prec-val, .rec-val, .f1-val {
+	text-align: center;
+	font-family: 'Oswald', serif;
+	font-size: 200%;
+	font-weight: bolder;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.acc, .prec, .rec, .f1 {
+	text-align: center;
+	font-family: 'Poppins', serif;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-top: 2.5%;
+}
+
+.training-results {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dense-nn-acc-div, .dense-nn-loss-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5%;
+}
+
+.vs-epochs-h4-div, .vs-epochs-img-div {
+    flex-basis: 100%;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    text-align: center;
+}
+
+
+.vs-epochs-tag {
+    text-align: center;
+    font-family: 'Oswald', serif;
+    font-size: 300%;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
+
