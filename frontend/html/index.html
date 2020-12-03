@@ -53,42 +53,41 @@
 					</div>			
 				</div>
 
-				<div class='intro-desc-div' id='intro-desc-div'>
-					<div class='intro-desc-mid-div'>
-						<div class='intro-desc-h4-div'>
-							<h4 class='intro-desc-tag' id='intro-desc-tag'>Problem Statement</h4>
-						</div>
-						<div class='intro-desc-p-div'>
-							<p class='intro-desc' id='intro-desc'>To design a portable, localized weather forecasting device to collect live weather data at a current location in Singapore.</p>
-						</div>
-					</div>
-				</div>
 
-				<div class='intro-moti-div' id='intro-moti-div'>
-					<div class='intro-moti-mid-div' id='intro-moti-mid-div'>
-						<div class='intro-moti-h4-div'>
-							<h4 class='intro-moti-tag' id='intro-moti-tag'>But... Why?</h4>
-						</div>
-						<div class='intro-moti-p-div'>
-							<p class='intro-moti' id='intro-moti'>Singapore is often sunny and humid, with a chance of rainfall. Knowing the weather in the future locally can help people plan activities better... And it's a school project.</p>
-						</div>
-					</div>
-				</div>
+				<div class='intro-table-statements-div'> 
+					<table class='intro-table-statements' id='intro-table-statements'>
+						<tr class='intro-desc-div'>
+							<td class='intro-desc-h4-div'>
+								<h4 class='intro-desc-tag' id='intro-desc-tag'>Problem Statement</h4>
+							</td>
+							<td class='intro-desc-p-div'>
+								<p class='intro-desc' id='intro-desc'>To design a portable, localized weather forecasting device to collect live weather data at a current location in Singapore.</p>
+							</td>
+						</tr>
 
-				<div class='intro-img-div' id='intro-img-div'>
-					<div class='intro-img-mid-div' id='intro-img-mid-div'>
-						<div class='intro-img-h4-div'>
-							<h4 class='intro-img-tag' id='intro-img-tag'>CC2650 SensorTag as a weather prediction device</h4>
-						</div>
-						<div class='intro-img-p-div'>
-							<div class='intro-img'>
-								<img src='../images/generic/sensortag.png' id='sensortag-img' class='sensortag-img' alt='sensortag'/>
-							</div>
-							<div class='intro-link-div'>
-								<a href='https://www.ti.com/tool/TIDC-CC2650STK-SENSORTAG' class='intro-link' id='intro-link'>Read more about the CC2650 SensorTag here!</a>
-							</div>
-						</div>
-					</div>
+						<tr class='intro-moti-div' id='intro-moti-div'>
+							<td class='intro-moti-h4-div'>
+								<h4 class='intro-moti-tag' id='intro-moti-tag'>But... Why?</h4>
+							</td>
+							<td class='intro-moti-p-div'>
+								<p class='intro-moti' id='intro-moti'>Singapore is often sunny and humid, with a chance of rainfall. Knowing the weather in the future locally can help people plan activities better... And it's a school project.</p>
+							</td>
+						</tr>
+
+						<tr class='intro-img-div' id='intro-img-div'>
+							<td class='intro-img-h4-div'>
+								<h4 class='intro-img-tag' id='intro-img-tag'>CC2650 SensorTag as a<br>weather prediction device</h4>
+							</td>
+							<td class='intro-img-p-div'>
+								<div class='intro-img'>
+									<img src='../images/generic/sensortag.png' id='sensortag-img' class='sensortag-img' alt='sensortag'/>
+								</div>
+								<div class='intro-link-div'>
+									<a href='https://www.ti.com/tool/TIDC-CC2650STK-SENSORTAG' class='intro-link' id='intro-link'>Read more about the CC2650 SensorTag here!</a>
+								</div>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 
@@ -96,28 +95,29 @@
 
 			<div class='workflow-div' id='workflow-div'>
 
-				<div class='workflow-how-to-div'>
-					<div class='workflow-h4-div'>
-						<h4 class='workflow-h4' id='workflow-h4'>Process of obtaining weather prediction in a user's perspective</h4>
-					</div>
+				<table class='workflow-how-to-div'>
+					<tr class='workflow-row-div'>
+						<td class='workflow-h4-div'>
+							<h4 class='workflow-h4' id='workflow-h4'>Process of obtaining weather prediction in a user's perspective</h4>
+						</td>
 
-					<div class='workflow-img-div' id='workflow-img-div'>
-						<img src='../images/generic/workflow.png' id='workflow-img' class='workflow-img' alt='workflow'/>
-					</div>
-				</div>
+						<td class='workflow-img-div' id='workflow-img-div'>
+							<img src='../images/generic/workflow.png' id='workflow-img' class='workflow-img' alt='workflow'/>
+						</td>
+					</tr>
+				</table>
 
 				<div class='workflow-seq-div'>
-					
-						<ol class='workflow-ol' id='workflow-ol'>
-							<li class='workflow-li' id='workflow-li'>We collect data from the SensorTag and stored this data in a database in an hourly interval. An MQTT broker on a Raspberry Pi requests the SensorTag for this data. The query is initiated by the user.</li>
-							<li class='workflow-li' id='workflow-li'>Database is queried by the server.</li>
-							<li class='workflow-li' id='workflow-li'>SensorTag data from mongoDB is sent back to the server.</li>
-							<li class='workflow-li' id='workflow-li'>Data unacquirable by the SensorTag will be complemented by WeatherAPI data.</li>
-							<li class='workflow-li' id='workflow-li'>WeatherAPI data is sent back to the server, were data is combined and preprocessed for inference by a Long-Short-Term-Memory (LSTM) Neural Network.</li>
-							<li class='workflow-li' id='workflow-li'>Four weather radar images from the Metereological Service of Singapore (MSS) for the current timestamp and the past 30 minutes are queried.</li>
-							<li class='workflow-li' id='workflow-li'>Weather radar images are downloaded to the server to be used by a Convolutional Neural Network (CNN).</li>
-							<li class='workflow-li' id='workflow-li'>The server predicts the probability of rain within the next hour using an AND result from both neural networks. The LSTM predicts rain using ground sensor data, while CNN predicts rain using weather radar images.</li>
-						</ol>
+					<ol class='workflow-ol' id='workflow-ol'>
+						<li class='workflow-li' id='workflow-li'>We collect data from the SensorTag and stored this data in a database in an hourly interval. An MQTT broker on a Raspberry Pi requests the SensorTag for this data. The query is initiated by the user.</li>
+						<li class='workflow-li' id='workflow-li'>Database is queried by the server.</li>
+						<li class='workflow-li' id='workflow-li'>SensorTag data from mongoDB is sent back to the server.</li>
+						<li class='workflow-li' id='workflow-li'>Data unacquirable by the SensorTag will be complemented by WeatherAPI data.</li>
+						<li class='workflow-li' id='workflow-li'>WeatherAPI data is sent back to the server, were data is combined and preprocessed for inference by a Long-Short-Term-Memory (LSTM) Neural Network.</li>
+						<li class='workflow-li' id='workflow-li'>Four weather radar images from the Metereological Service of Singapore (MSS) for the current timestamp and the past 30 minutes are queried.</li>
+						<li class='workflow-li' id='workflow-li'>Weather radar images are downloaded to the server to be used by a Convolutional Neural Network (CNN).</li>
+						<li class='workflow-li' id='workflow-li'>The server predicts the probability of rain within the next hour using an AND result from both neural networks. The LSTM predicts rain using ground sensor data, while CNN predicts rain using weather radar images.</li>
+					</ol>
 				</div>
 			</div>
 
@@ -125,27 +125,30 @@
 
 			<div class='lstm-div' id='lstm-div'>
 
-				<div class='datatime-features'>
-					<div class='datatime-div' id='datatime-div'>
-						<div class='datetime-tag-div'>
+				<table class='datatime-features'>
+					<tr class='datatime-div' id='datatime-div'>
+						<td class='datetime-tag-div'>
 							<h4 class='datatime-tag' id='datatime-tag'>Data Collected from:</h4>
-						</div>
+						</td>
 
-						<div class='datetime-img'>
-							<img src='../images/lstm/calendar.svg' id='calendar-img' class='calendar-img' alt='calendar'/>
-						</div>
+						<td class='features-tag-div'>
+							<h4 class='features-tag' id='features-tag'>Features<br>Selected:</h4>
+						</td>
+					</tr>
 
-						<div class='duration-div'>
-							<p class='datetime' id='datatime'>9th October to 29th October</p>
-							<p class='intervals' id='intervals'>at hourly intervals</p>
-						</div>
-					</div>
+					<tr class='features-div' id='features-div'>
+						<td class='datatime-img-td'>
+							<div class='datetime-img'>
+								<img src='../images/lstm/calendar.svg' id='calendar-img' class='calendar-img' alt='calendar'/>
+							</div>
 
-					<div class='features-div' id='features-div'>
-						<div class='features-tag-div'>
-							<h4 class='features-tag' id='features-tag'>Features Selected:</h4>
-						</div>
-						<div class='features-combined'>
+							<div class='duration-div'>
+								<p class='datetime' id='datatime'>9th October to 29th October</p>
+								<p class='intervals' id='intervals'>at hourly intervals</p>
+							</div>
+						</td>
+
+						<td class='features-combined'>
 							<div class='features-first-three' id='features-first-three'>
 
 								<div class='feature-div'>
@@ -175,22 +178,26 @@
 									<p class='features' id='features'>Wind Speed</p>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
+						</td>
+					</tr>
+				</table>
 
 
 
-				<div class='sampled-areas-div' id='sampled-areas-div'>
-					<div class='sampled-areas-text-div'>
-						<h4 class='sampled-areas-number' id='sampled-areas-number'>41 different regions in Singapore sampled</h4>
-						<p class='sampled-areas-text' id='sampled-areas-text'>Data from past three hours used to predict for next hour</p>
-					</div>
+				<table class='sampled-areas-div' id='sampled-areas-div'>
+					<tr class='sampled-areas-tr'>
+						<td class='sampled-areas-td'>
+							<div class='sampled-areas-text-div'>
+								<h4 class='sampled-areas-number' id='sampled-areas-number'>41 different regions<br>in Singapore sampled</h4>
+								<p class='sampled-areas-text' id='sampled-areas-text'>Data from past three hours<br>used to predict for next hour</p>
+							</div>
+						</td>
 
-					<div class='sampled-areas-img-div'>
-						<img src='../images/generic/sampled_areas.png' id='sampled-areas-img' class='sampled-areas-img' alt='sampled-areas-img'/>
-					</div>
-				</div>
+						<td class='sampled-areas-img-div'>
+							<img src='../images/generic/sampled_areas.png' id='sampled-areas-img' class='sampled-areas-img' alt='sampled-areas-img'/>
+						</td>
+					</tr>
+				</table>
 
 				<div class='lstm-training-results'>
 
@@ -228,14 +235,22 @@
 
 			<div class='dense-nn-div' id='dense-nn-div'>
 
-				<div class='dense-nn-results' id='dense-nn-results'>
+				<table class='dense-nn-results' id='dense-nn-results'>
 
-					<div class='train' id='train'>
-						<div class='train-val-div' id='train-val-div'>
+					<tr class='train' id='train'>
+						<td class='train-val-div' id='train-val-div'>
 							<h4 class='train-val' id='train-val'>Train Data Results</h4>
-						</div>
+						</td>
 
-						<div class='results-values-div'>
+						<td class='test-val-div' id='test-val-div'>
+							<h4 class='test-val' id='test-val'>Test Data<br>Results</h4>
+						</td>
+					</tr>
+
+
+
+					<tr class='test' id='test'>
+						<td class='results-values-div-1'>
 							<div class='top-two'>
 								<div class='result-div'>
 									<h4 class='acc-val' id='acc-val'>98.1%</h4>
@@ -259,17 +274,9 @@
 									<p class='f1' id='f1'>F1 score</p>
 								</div>
 							</div>
-						</div>
-					</div>
+						</td>
 
-
-
-					<div class='test' id='test'>
-						<div class='test-val-div' id='test-val-div'>
-							<h4 class='test-val' id='test-val'>Test Data Results</h4>
-						</div>
-
-						<div class='results-values-div'>
+						<td class='results-values-div-2'>
 							<div class='top-two'>
 								<div class='result-div'>
 									<h4 class='acc-val' id='acc-val'>98.1%</h4>
@@ -293,32 +300,32 @@
 									<p class='f1' id='f1'>F1 score</p>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>	
+						</td>
+					</tr>
+				</table>	
 
 
 
-				<div class='training-results' id='training-results'>
-					<div class='dense-nn-acc-div' id='dense-nn-acc-div'>
-						<div class='vs-epochs-h4-div' id='vs-epochs-h4-div'>
-							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Accuracy vs Epochs</h4>
-						</div>
+				<table class='training-results' id='training-results'>
+					<tr class='dense-nn-acc-div' id='dense-nn-acc-div'>
+						<td class='vs-epochs-h4-div' id='vs-epochs-h4-div'>
+							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Accuracy<br>vs<br>Epochs</h4>
+						</td>
 
-						<div class='vs-epochs-img-div' id='vs-epochs-img-div'>
+						<td class='vs-epochs-img-div' id='vs-epochs-img-div'>
 							<img src='../images/dense_nn/dense_accuracy.png' id='dense_accuracy-img' class='dense_accuracy-img' alt='dense_accuracy'/>
-						</div>
-					</div>
-					<div class='dense-nn-loss-div' id='dense-nn-loss-div'>
-						<div class='vs-epochs-h4-div' id='vs-epochs-h4-div'>
-							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Loss vs Epochs</h4>
-						</div>
+						</td>
+					</tr>
+					<tr class='dense-nn-loss-div' id='dense-nn-loss-div'>
+						<td class='vs-epochs-h4-div' id='vs-epochs-h4-div'>
+							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Loss<br>vs<br>Epochs</h4>
+						</td>
 
-						<div class='vs-epochs-img-div' id='vs-epochs-img-div'>
+						<td class='vs-epochs-img-div' id='vs-epochs-img-div'>
 							<img src='../images/dense_nn/dense_loss.png' id='dense_loss-img' class='dense_loss-img' alt='dense_loss'/>
-						</div>
-					</div>
-				</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</body>

@@ -1,35 +1,45 @@
 .dense-nn-div {
-
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10vh;
 }
 
 .dense-nn-results {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    margin-bottom: auto;
+    margin-bottom: 1vh;
+    width: 100%;
+}
 }
 
 .train, .test {
+	width: auto;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .train-val-div, .test-val-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-    margin-left: auto;
-    margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 .train-val, .test-val {
 	text-align: center;
 	font-family: 'Oswald', serif;
-	font-size: 300%;
+	font-size: 250%;
+	margin-left: auto;
+    margin-right: auto;
 	margin-top: 0;
 	margin-bottom: 2%;
 }
@@ -37,7 +47,7 @@
 .results-values-div {
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 5%;
+	width: 50%;
 }
 
 .top-two, .bottom-two {
@@ -53,10 +63,19 @@
 	margin-right: 5%;
 }
 
+.train-val-div, .results-values-div-1 {
+	padding-right: 5vw;
+}
+
+.test-val-div, .results-values-div-2 {
+	padding-left: 5vw;
+}
+
 .acc-val, .prec-val, .rec-val, .f1-val {
 	text-align: center;
 	font-family: 'Oswald', serif;
-	font-size: 200%;
+	font-size: 150%;
+	width: 75%;
 	font-weight: bolder;
 	margin-left: auto;
     margin-right: auto;
@@ -83,28 +102,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2.5%;
 }
 
 .vs-epochs-h4-div, .vs-epochs-img-div {
-    flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-    text-align: center;
+	width: 50%;
 }
 
+.vs-epochs-h4-div {
+	margin-right: 2.5vw;
+}
+
+.vs-epochs-img-div {
+	text-align: center;
+	margin-left: 2.5vw;
+}
 
 .vs-epochs-tag {
     text-align: center;
     font-family: 'Oswald', serif;
-    font-size: 300%;
-    width: 75%;
+    font-size: 200%;
     margin-left: auto;
     margin-right: auto;
 }
-}
-
 

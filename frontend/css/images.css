@@ -2,32 +2,33 @@
 	max-height: 64px;
 	max-width: 64px;
 	padding-bottom: 20px;
+	height: 10vh;
+	width: 10vw;
 }
 
 .sensortag-img {
 	max-width: 200px;
 	max-height: 200px;
-	width: auto;
-	height: auto;
+	height: 10vh;
+	width: 10vw;
 }
 
 .workflow-img {
 	max-width: 75%;
 	max-height: 75%;
-	width: auto;
-	height: auto;
+	width: 30vw;
 }
 
 .calendar-img {
-	max-height: 64px;
-	max-width: 64px;
+	max-height: 20%;
+	max-width: 20%;
 }
 
 .feature-img {
 	max-height: 64px;
 	max-width: 64px;
-	height: 64px;
-	width: 64px;
+	height: 10vh;
+	width: 10vw;
 	padding-bottom: 20px;
 }
 
@@ -40,20 +41,22 @@
 
 .lstm_predictions-img, .lstm_north_predictions-img, .lstm_south_predictions-img, .lstm_east_predictions-img, .lstm_west_predictions-img {
 	margin-top: 2.5%;
-	max-width: 95%;
-	max-height: 95%;
+    max-width: 90%;
+    max-height: 90%;
+    display: block; /* remove extra space below image */
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .dense_accuracy-img {
-	max-width: 100%;
-	max-height: 100%;
-	width: auto;
+	max-width: 40vw;
+	width: 30vw;
 	height: auto;
 }
 
 .dense_loss-img {
-	max-width: 100%;
-	max-height: 100%;
-	width: auto;
+	max-width: 40vw;
+	width: 30vw;
 	height: auto;
 }

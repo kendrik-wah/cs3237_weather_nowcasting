@@ -4,5 +4,17 @@ body {
 
 .body-div {
 	margin: 0 auto;
-	max-width: 1080px;
+	max-width: 1440px;
+	width: 90%;
+}
+
+p, h4, th, td, a {
+	font-size: 1vw;
+}
+
+p, td {
+	font-size: 100%;
+}
+
+img {
 }

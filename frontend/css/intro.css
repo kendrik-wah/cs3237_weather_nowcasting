@@ -6,7 +6,7 @@
 }
 
 .done-by-div {
-	width: auto;
+	width: 80%;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
@@ -24,17 +24,17 @@
 	text-align: center;
 	margin-bottom: 10%;
 	margin-top: -20%;
+
 }
 
 .intro-title {
 	font-family: 'Oswald', serif;
-	font-size: 500%;
+	font-size: 300%
 }
 
 .intro-by-div {
 	margin-left: auto;
 	margin-right: auto;
-	width: 80%;
 	margin-bottom: 10%;
 }
 
@@ -53,102 +53,57 @@
 	font-family: 'Poppins', serif;
 }
 
-.intro-desc-div {
+.intro-table-statements-div {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5vh;
+}
+
+.intro-table-statements {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+.intro-desc-div, .intro-moti-div, .intro-img-div {
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.intro-desc-mid-div {
+	margin-top: 1vh;
+	margin-bottom: 1vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
-.intro-desc-h4-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-}
-
-.intro-desc-tag {
-	text-align: center;
-	font-family: 'Oswald', serif;
-	font-size: 300%;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-.intro-desc-p-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-}
-
-.intro-desc {
-	text-align: center;
-	font-family: 'Poppins', serif;
-	font-size: 125%;
-	margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-}
-
-.intro-moti-div {
-	width: auto;
+.intro-desc-h4-div, .intro-moti-h4-div, .intro-img-h4-div {
+	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.intro-moti-mid-div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
-.intro-moti-h4-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-}
-
-.intro-moti-tag {
+.intro-desc-tag, .intro-moti-tag, .intro-img-tag {
 	text-align: center;
 	font-family: 'Oswald', serif;
-	font-size: 300%;
-    margin-left: auto;
+	font-size: 250%;
+	margin-left: auto;
     margin-right: auto;
 }
 
-.intro-moti-p-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
+.intro-desc-p-div, .intro-moti-p-div, .intro-img-p-div {
+	width: 50%;
 }
 
-.intro-moti {
+.intro-desc, .intro-moti {
 	text-align: center;
 	font-family: 'Poppins', serif;
-	font-size: 125%;
+	font-size: 100%;
 	margin-left: auto;
     margin-right: auto;
     width: 75%;
-}
-
-.intro-img-div {
-	width: auto;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .intro-img-mid-div {
@@ -160,27 +115,6 @@
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-.intro-img-h4-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-}
-
-.intro-img-tag {
-	text-align: center;
-	font-family: 'Oswald', serif;
-	font-size: 300%;
-	width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.intro-img-p-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
 }
 
 .intro-img {
@@ -195,9 +129,9 @@
 }
 
 .intro-link {
+	text-align: center;
 	font-family: 'Poppins', serif;
-	font-size: 100%;
+	font-size: 90%;
 	margin-left: auto;
     margin-right: auto;
-    width: 75%;
 }

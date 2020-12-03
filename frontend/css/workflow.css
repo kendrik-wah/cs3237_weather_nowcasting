@@ -1,5 +1,5 @@
 .workflow-div {
-	margin-top: 5%;
+	margin-top: 1vh;
 }
 
 .workflow-how-to-div {
@@ -13,26 +13,34 @@
     margin-bottom: auto;
 }
 
-.workflow-h4-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
+.workflow-h4-div, .workflow-img-div {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.workflow-row-div {
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .workflow-h4 {
 	text-align: center;
 	font-family: 'Oswald', serif;
-	font-size: 300%;
+	font-size: 250%;
 	margin-left: auto;
     margin-right: auto;
-    width: 80%;
-}
-
-.workflow-img-div {
-	flex-basis: 100%;
-    margin-top: inherit;
-    margin-bottom: inherit;
-    text-align: center;
+	margin-top: 0;
+    margin-bottom: 0;
 }
 
 .workflow-seq-div {
@@ -46,4 +54,5 @@
 
 .workflow-li {
 	font-family: 'Poppins', serif;
+	font-size: 100%;
 }
