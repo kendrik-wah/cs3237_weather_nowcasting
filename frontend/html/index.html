@@ -125,30 +125,28 @@
 
 			<div class='lstm-div' id='lstm-div'>
 
-				<table class='datatime-features'>
-					<tr class='datatime-div' id='datatime-div'>
-						<td class='datetime-tag-div'>
-							<h4 class='datatime-tag' id='datatime-tag'>Data Collected from:</h4>
-						</td>
+				<div class='datatime-features'>
+					<div class='datatime-div' id='datatime-div'>
+						<div class='datetime-tag-div'>
+							<h4 class='datatime-tag' id='datatime-tag'>Data<br>Collected from:</h4>
+						</div>
 
-						<td class='features-tag-div'>
+						<div class='datetime-img'>
+							<img src='../images/lstm/calendar.svg' id='calendar-img' class='calendar-img' alt='calendar'/>
+						</div>
+
+						<div class='duration-div'>
+							<p class='datetime' id='datatime'>9th October<br>to<br>29th October</p>
+							<p class='intervals' id='intervals'>at hourly intervals</p>
+						</div>
+					</div>
+
+					<div class='features-div' id='features-div'>
+						<div class='features-tag-div'>
 							<h4 class='features-tag' id='features-tag'>Features<br>Selected:</h4>
-						</td>
-					</tr>
+						</div>
 
-					<tr class='features-div' id='features-div'>
-						<td class='datatime-img-td'>
-							<div class='datetime-img'>
-								<img src='../images/lstm/calendar.svg' id='calendar-img' class='calendar-img' alt='calendar'/>
-							</div>
-
-							<div class='duration-div'>
-								<p class='datetime' id='datatime'>9th October to 29th October</p>
-								<p class='intervals' id='intervals'>at hourly intervals</p>
-							</div>
-						</td>
-
-						<td class='features-combined'>
+						<div class='features-combined'>
 							<div class='features-first-three' id='features-first-three'>
 
 								<div class='feature-div'>
@@ -178,26 +176,22 @@
 									<p class='features' id='features'>Wind Speed</p>
 								</div>
 							</div>
-						</td>
-					</tr>
-				</table>
+						</div>
+					</div>
+				</div>
 
 
 
-				<table class='sampled-areas-div' id='sampled-areas-div'>
-					<tr class='sampled-areas-tr'>
-						<td class='sampled-areas-td'>
-							<div class='sampled-areas-text-div'>
-								<h4 class='sampled-areas-number' id='sampled-areas-number'>41 different regions<br>in Singapore sampled</h4>
-								<p class='sampled-areas-text' id='sampled-areas-text'>Data from past three hours<br>used to predict for next hour</p>
-							</div>
-						</td>
+				<div class='sampled-areas-div' id='sampled-areas-div'>
+					<div class='sampled-areas-text-div'>
+						<h4 class='sampled-areas-number' id='sampled-areas-number'>41 different regions<br>in Singapore sampled</h4>
+						<p class='sampled-areas-text' id='sampled-areas-text'>Data from past three hours<br>used to predict for next hour</p>
+					</div>
 
-						<td class='sampled-areas-img-div'>
-							<img src='../images/generic/sampled_areas.png' id='sampled-areas-img' class='sampled-areas-img' alt='sampled-areas-img'/>
-						</td>
-					</tr>
-				</table>
+					<div class='sampled-areas-img-div'>
+						<img src='../images/generic/sampled_areas.png' id='sampled-areas-img' class='sampled-areas-img' alt='sampled-areas-img'/>
+					</div>
+				</div>
 
 				<div class='lstm-training-results'>
 
@@ -309,7 +303,7 @@
 				<table class='training-results' id='training-results'>
 					<tr class='dense-nn-acc-div' id='dense-nn-acc-div'>
 						<td class='vs-epochs-h4-div' id='vs-epochs-h4-div'>
-							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Accuracy<br>vs<br>Epochs</h4>
+							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Accuracy vs Epochs</h4>
 						</td>
 
 						<td class='vs-epochs-img-div' id='vs-epochs-img-div'>
@@ -318,7 +312,7 @@
 					</tr>
 					<tr class='dense-nn-loss-div' id='dense-nn-loss-div'>
 						<td class='vs-epochs-h4-div' id='vs-epochs-h4-div'>
-							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Loss<br>vs<br>Epochs</h4>
+							<h4 class='vs-epochs-tag' id='vs-epochs-tag'>Loss vs Epochs</h4>
 						</td>
 
 						<td class='vs-epochs-img-div' id='vs-epochs-img-div'>

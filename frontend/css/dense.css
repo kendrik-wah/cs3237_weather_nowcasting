@@ -59,8 +59,8 @@
 }
 
 .result-div {
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .train-val-div, .results-values-div-1 {
@@ -75,7 +75,6 @@
 	text-align: center;
 	font-family: 'Oswald', serif;
 	font-size: 150%;
-	width: 75%;
 	font-weight: bolder;
 	margin-left: auto;
     margin-right: auto;
@@ -92,10 +91,12 @@
 }
 
 .training-results {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: auto;
     margin-bottom: auto;
+    width: auto;
 }
 
 .dense-nn-acc-div, .dense-nn-loss-div {
@@ -105,6 +106,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 2.5%;
+
 }
 
 .vs-epochs-h4-div, .vs-epochs-img-div {
